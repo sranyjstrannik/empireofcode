@@ -8,6 +8,7 @@ def golf(r):
 """
 
 #общая длина -- 148
+# решение не зашло, т.к. нельзя использовать numpy
 s="""
 import numpy as n
 def golf(r):
@@ -15,5 +16,18 @@ def golf(r):
  x,y=n.meshgrid(t,t)
  m,k=(x**2+y**2<r**2).sum()*4,((x+1)**2+(y+1)**2<=r**2).sum()*4
  return [k,m-k]
+"""
+
+# общая длина 130
+s="""
+def golf(r):
+ p=range(4)
+ t=q=0
+ for i in p:
+  for j in p:
+   s=i*i+j*j
+   t+=r*r>s
+   q+=r*r>=s+2*(i+j+1)
+ return [q*4,t*4-q*4]
 """
 print(len(s))
